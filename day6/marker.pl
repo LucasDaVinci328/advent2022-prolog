@@ -1,99 +1,17 @@
-marker([A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14], 14) :- not_equal(A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14), !.
-marker([A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14 | _], 14) :- not_equal(A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14), !.
-marker([_, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14 | L], N) :- marker([A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14 | L], NN), N is NN + 1.
+marker([H | L], LEN, LEN) :- subList([H | L], LEN, LL), not_equal(LL), !.
+marker([_ | L], N, LEN) :- marker(L, NN, LEN), N is NN + 1.
 
-%used generator.cpp to create not_equal
-not_equal(A, A, _, _, _, _, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(A, _, A, _, _, _, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, A, A, _, _, _, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(A, _, _, A, _, _, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, A, _, A, _, _, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, A, A, _, _, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(A, _, _, _, A, _, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, A, _, _, A, _, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, A, _, A, _, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, A, A, _, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(A, _, _, _, _, A, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, A, _, _, _, A, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, A, _, _, A, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, A, _, A, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, A, A, _, _, _, _, _, _, _, _) :- !, fail.
-not_equal(A, _, _, _, _, _, A, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, A, _, _, _, _, A, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, A, _, _, _, A, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, A, _, _, A, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, A, _, A, _, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, A, A, _, _, _, _, _, _, _) :- !, fail.
-not_equal(A, _, _, _, _, _, _, A, _, _, _, _, _, _) :- !, fail.
-not_equal(_, A, _, _, _, _, _, A, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, A, _, _, _, _, A, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, A, _, _, _, A, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, A, _, _, A, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, A, _, A, _, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, A, A, _, _, _, _, _, _) :- !, fail.
-not_equal(A, _, _, _, _, _, _, _, A, _, _, _, _, _) :- !, fail.
-not_equal(_, A, _, _, _, _, _, _, A, _, _, _, _, _) :- !, fail.
-not_equal(_, _, A, _, _, _, _, _, A, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, A, _, _, _, _, A, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, A, _, _, _, A, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, A, _, _, A, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, A, _, A, _, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, A, A, _, _, _, _, _) :- !, fail.
-not_equal(A, _, _, _, _, _, _, _, _, A, _, _, _, _) :- !, fail.
-not_equal(_, A, _, _, _, _, _, _, _, A, _, _, _, _) :- !, fail.
-not_equal(_, _, A, _, _, _, _, _, _, A, _, _, _, _) :- !, fail.
-not_equal(_, _, _, A, _, _, _, _, _, A, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, A, _, _, _, _, A, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, A, _, _, _, A, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, A, _, _, A, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, A, _, A, _, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, A, A, _, _, _, _) :- !, fail.
-not_equal(A, _, _, _, _, _, _, _, _, _, A, _, _, _) :- !, fail.
-not_equal(_, A, _, _, _, _, _, _, _, _, A, _, _, _) :- !, fail.
-not_equal(_, _, A, _, _, _, _, _, _, _, A, _, _, _) :- !, fail.
-not_equal(_, _, _, A, _, _, _, _, _, _, A, _, _, _) :- !, fail.
-not_equal(_, _, _, _, A, _, _, _, _, _, A, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, A, _, _, _, _, A, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, A, _, _, _, A, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, A, _, _, A, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, A, _, A, _, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, A, A, _, _, _) :- !, fail.
-not_equal(A, _, _, _, _, _, _, _, _, _, _, A, _, _) :- !, fail.
-not_equal(_, A, _, _, _, _, _, _, _, _, _, A, _, _) :- !, fail.
-not_equal(_, _, A, _, _, _, _, _, _, _, _, A, _, _) :- !, fail.
-not_equal(_, _, _, A, _, _, _, _, _, _, _, A, _, _) :- !, fail.
-not_equal(_, _, _, _, A, _, _, _, _, _, _, A, _, _) :- !, fail.
-not_equal(_, _, _, _, _, A, _, _, _, _, _, A, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, A, _, _, _, _, A, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, A, _, _, _, A, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, A, _, _, A, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, A, _, A, _, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, _, A, A, _, _) :- !, fail.
-not_equal(A, _, _, _, _, _, _, _, _, _, _, _, A, _) :- !, fail.
-not_equal(_, A, _, _, _, _, _, _, _, _, _, _, A, _) :- !, fail.
-not_equal(_, _, A, _, _, _, _, _, _, _, _, _, A, _) :- !, fail.
-not_equal(_, _, _, A, _, _, _, _, _, _, _, _, A, _) :- !, fail.
-not_equal(_, _, _, _, A, _, _, _, _, _, _, _, A, _) :- !, fail.
-not_equal(_, _, _, _, _, A, _, _, _, _, _, _, A, _) :- !, fail.
-not_equal(_, _, _, _, _, _, A, _, _, _, _, _, A, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, A, _, _, _, _, A, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, A, _, _, _, A, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, A, _, _, A, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, _, A, _, A, _) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, _, _, A, A, _) :- !, fail.
-not_equal(A, _, _, _, _, _, _, _, _, _, _, _, _, A) :- !, fail.
-not_equal(_, A, _, _, _, _, _, _, _, _, _, _, _, A) :- !, fail.
-not_equal(_, _, A, _, _, _, _, _, _, _, _, _, _, A) :- !, fail.
-not_equal(_, _, _, A, _, _, _, _, _, _, _, _, _, A) :- !, fail.
-not_equal(_, _, _, _, A, _, _, _, _, _, _, _, _, A) :- !, fail.
-not_equal(_, _, _, _, _, A, _, _, _, _, _, _, _, A) :- !, fail.
-not_equal(_, _, _, _, _, _, A, _, _, _, _, _, _, A) :- !, fail.
-not_equal(_, _, _, _, _, _, _, A, _, _, _, _, _, A) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, A, _, _, _, _, A) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, A, _, _, _, A) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, _, A, _, _, A) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, _, _, A, _, A) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, _, _, _, A, A) :- !, fail.
-not_equal(_, _, _, _, _, _, _, _, _, _, _, _, _, _).
+subList([H | _], 0, [H]) :- !.
+subList([H | T], N, [H | L]) :- NN is N - 1, subList(T, NN, L).
+       
+insertUnique(H, [], [H]) :- !.
+insertUnique(H, [H | T], [H | T]) :- !.
+insertUnique(H, [A | T], [A | TT]) :- insertUnique(H, T, TT).
 
-run(N) :- string_to_list("rnttlvtttmnmpmhpmmzvmmhpmmnrntnnsnrnndvnddmbbtptssjcczmmbwmbmwwmmflfggwzzhjjgppwrwdwqwbbbmwbwgggqccmlmdmgdgqgpqgpgzzndddgdbbsvvfsfppwjwzjjcnjccwrwrprgppbpddnccjggfrggqngqgdqgddvsshqhmqqfvqvlvwvnwwmccrpcczvcczzgsgwwlggqsggmdgglblpblltbbzrbzzcscgccwssbddsmddzzvvhjjwjwrjwrwfftmttplldnllqttdhddmvdmmhsmsmqsqwqpqbpqppqdppbnpnhhppjbbrzrbrggdbddnrdrzrdrpdppzzfzrzgzllwlwzlllwtltslttlmtmqqbbzmzhmmjjwrjrrnzrzhzmmtbbrppmmfddjhdjdsdllrbbpfphpzpwwjvwwdpwpzwwzrrfnfwwfbbpttzjtjptpvvsfvvljjrzzmdmsddpvpgvvdcdwcwhwghwggrjjhdjhddzhhwbhwbwwbrwwrfrmfrfvrfftzzqrzqrqtrqtrqtrqttgctclcwlwwvqqnlnqlnnndmnmggznzhzqzggzrzbbrwbrwrvvscvvmvhmvvbsbjsjfjpfpqpbbbbjtjptpprnndpnnrsswffmnnjhhpqhqwhhbwhbhgbbfrbrjjpmjmzzdzjdjffcvvtwttrrcscvcncqcfcwwpgpfptpcpspllcfcssgbglgdllcdcmcpcqclctcvtvvbhbbdhhczhzshzhbhchzchchlcllwswqqmpmbbqwwzgzhggczgzffsgggjjlcjjpnjjfqjfjvfvrfrlrvvpfpcfcbffnmfmbmbgggplldblddvcvjcvvmbmmmrvrvvnhhqttgdgvdgdqgddcsclljplpbbsvbsbfsffshsgslsllzztggttfccctwtswwrvwvnnfbnnvjnvvlgvvfppmvpmmvpmmcttjffgsffcllncntcncfclcgcppvdvpvrvbrrnnvrvhrvrzvrvnrvrdrnrqrnngsshqhcqqbfqqzmmmzjzqztznttjffqzfqfbqqsggclgclcddtqqdppbjppqvpqvvmqmqnqcnqcqcqvqjqzqbzzbrrgfgddgtgnnpjjbzjjbbtstzszwswggfffmnnpllfvvnwnpwpqwqwlllqlmmzcmcrcmrcmrcrffnrnssjjrdjjwwqgwqgqdggwzwjzzbfbpptctchthbbbqsqggrllldwdffvwwlrwwljwjnncmmjmvjmmqnnmrrgjgvvpqqbppqlpqllqnqdndwwlppcjcdjjcnnmddffgjjrwjrwjjhvhqvhhfssrtsrsgrrwjwhhbqqpzzrdrhrqhrqrprqqmllsszhzllcdllpmpbbmsmjjmwmssvlslwwmtwmmgvgcvggzcgzgddsjsjfsssftfcchhfmfcmcpcpvcppqggjddljjbttwrrhghqggpghgngzngznnzqnnssqlqmqbmmmqdqqhttnqqjhhphrhccbggmjjpwpbwpprdrvvjzvvtctzzmpphwpwdpdvvhbvvdvsdsjdjbdjdljjstswttnhhbfffmnngddlglqggvzvlzvzqqvbqbvbjbnjjsvjjwpjjzshrdtrjttvqnbltrfpvnztrwzrtgjpzgqdjfglqgjrgdzbhqpghdbfhlfjhbfjfjppfgljmgwljlsbmltgztthnzvdrgqlgddvqhzctdgcphfqvnpjjgzwqfvnhvzdrwtpgfdjpqnfshslqmplcprdntnhqqbqptwzvdddhcjcqrfhjqnjvpnhttblwgjwlfwntdchgfjmdbgtqtdgnzbqwzzcltwtmtqtdbvjtfvlzpcvgmrfqwfhwqmhvwhftzgmhshffnjwqbvztszsrrglqvhfpqmbnqjsfnwdwgdtmztbvqrmztfctmvptbwnfzfgdztjgnqsrsqqqnrpgzsqszzwwwgqnnnrdzhzdbqjgbvncprzcjqchzfgnclbrmphbsdwwpvwjwlbshhgjfbhjjtdqrmrcjfnrrhqrpsbglthzpvfglqspttdpwlljhnlrjpzchbrqcgtmcscjnwvpztfjdcwbnbgmbpgdthgnhbrtwftnscbsrndghbslflpcpjwbcjnhzcwdcslmzqbtrlnzmntlpjcsctnsqwtbffqlhfgcsflvfwnmczvsbflnnnzpfjfrcwhhcbtbjcbghtcwcgdbrwrgfgvpwtcwlwcmnmrtcrjbwtwlrfstztsghfvrfjzzpswpqfqpvqstvbhqfjlgmtdlhqrhwzqpnqpllnlgzwptbgftmblqcwfcllbwfzdhrndfrvdvwzqvhnghlzvhldnnvrgqvlpfdnpmcgddjmstzsqfvzwftflrwtzqwjbbqhjpfbdztdfsgsztvvrvslgspgpdcmwszdfsddqhpzpsjgqmgzqvhchlgrmcmzwzbtwfphvgcdmhfdczhffgmqpncdjszzgwfvwsqddvbcgngbjwhmphjsmjthvbthhfwdtqmjctcmdpqpsdrnrzdgzgzctbhwsgvtjgwjbsnnjmpmqgwrnqfqbpnrpddjsrsvmcshhthwfrwmqsrjhlsrgfzvwmdzhwrvchppqldghgzflrnwqnvntmtdwmrpgbdbzvcmnqstzntvllcgzsnvrhqzsfncznhgrggmvrmgsqmhbdsjbsqqhzppfcwdrgdvfjdscrvpwtsdmcnczwbbjhvddprwtzfwslcfdcrqfszcgmhtdfvlqzqtvwngzvmmqcrqpzwzhggjnphsrmnctnfhtppglspnvzrsqfgzdfrrwbzbqwvbvbnzgmdrqrnsvdpvlgcmnggsbmbtfwrvdjrtgtgcqscnfpgswgsngdqnnscffdcnlrcpdpcbpzvqcrtjhlwvgnfhhqmprthrtcvcjjwgprqqdwfbgmzlwttjpvcjzfwbdhvngsjpgtqsvbldbcvhjhzbjzblqtqhlnbzzqfcpnzdhbplztcgvzhbgshqbccgwzhftqvtwzbwmnfrsgphhhgtsmwlqhlcchtbtggqwmbdthhmqqjtfdvfpddfdrtfjbpmwtcbfnrhwcnpdqrdtsfdmjfzdwwgnftnwpssgqtlpdbwhnzcnfmppclsswbhcdghpnslwjznqszgdtrnpncsqsnbrplrfwpbnfnvttlzcjtvhzcpzmhfsfzfjlzqqnprpdvwbfthmrswqrcqqwrnwzmgjqqsnqdblssmhngjjvprmqbswtgzzvprwhrgjqshvmwzgrgfmzlgrtzbmdlzncwqdftfsndvdfmmplswdbjtbcbvcvtpjvrqpghczpqvvpqwfbfhllbpvrrfsmsjhqbldcrwvzvcvzfffqvplbfbdbwctbjsljlfwtbcnpsbtpmcqgdvltmztvrcfsprbnvwplwhncgsdnrdmqnmcvpvvrlmlwtgvrnwvzsfctdlcfvtgqmpnbwcbwvfpmqnbjvwffpjtvvgflhrnlngrzhhttdtdbvscftsqtvbrgzfgsjvwhzjcbsqcttlgwmhhvjhwhgmmdtflfdbvnhgcblqmwjfsqnngjqfbvdnsfbgwjfhpgdgvhpbvlrtpcpvhrbtqpbffzcqrvbqwvqmmrcwtnvcgwvsqzvrwdbcnjshbnbftmmvrmjvgfdwbsjvqfdwnnvqqhbmshcrclrwhfhbtnwqvmrrvdwgcwcsrhdbqndsthmrmbjhttjtzmlflbrmhlcgsbdjcjcvwcjffnqrntpflrgfcngpchtrzpnflwjvcgbwtsnjfqsggwmwhdvbzdpjmtwlmrslnjsndjtgjmmwmdgtnfrztppzqvqhbfzqpsdhvsshddlzwcmsndrpqhndsrjnngnmgmzrvchwlqgdnbssbhpbpgwpsrcnbphpslvqplhpgdhmrnwwjmhvnsfjmrfwtvjjrmgptvjffhbgpmfgmgrcjrwqhccssrqjpljbpwcvsfdtmbhzsmsjsgblgpcqszsttfclrjcnsslmngmbmwqfhddbvmbvwmrmvglsl", L), marker(L, N).
+addUnique([], A, A) :- !.
+addUnique([H | T], L, NL) :- insertUnique(H, L, NNL), addUnique(T, NNL, NL).
+
+not_equal(L) :- addUnique(L, [], LL), length(L, Len), length(LL, Len).
+
+run_part_one(N) :- string_to_list("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg", L), marker(L, N, 4).
+run_part_two(N) :- string_to_list("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg", L), marker(L, N, 14).
